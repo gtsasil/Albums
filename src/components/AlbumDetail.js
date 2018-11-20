@@ -10,10 +10,10 @@ const AlbumDetail = ({ album }) => {
     const { title, artist, thumbnail_image, image, url } = album;
     const { 
         thumbnailStyle,
-         headerContenStyle,
-          thumbnailContainerStyle,
-           headerTextStyle,
-            imageStyle
+        headerContentStyle,
+        thumbnailContainerStyle,
+        headerTextStyle,
+        imageStyle
     } = styles;
 
     return (
@@ -25,7 +25,7 @@ const AlbumDetail = ({ album }) => {
                     source={{ uri: thumbnail_image }} 
                     />
                 </View>
-                <View style={headerContenStyle}>               
+                <View style={headerContentStyle}>               
                     <Text style={headerTextStyle}>{title}</Text>
                     <Text>{artist}</Text>
                 </View>
@@ -37,14 +37,16 @@ const AlbumDetail = ({ album }) => {
                 />
             </CardSection>
             <CardSection>
-                <Button onPress={() => Linking.openURL(url)} />
+                <Button onPress={() => Linking.openURL(url)}>
+                    Buy Now
+                </Button>
             </CardSection>
         </Card>
     );
 };
 
 const styles = {
-    headerContenStyle: {
+    headerContentStyle: {
         flexDirection: 'column',
         justifyContent: 'space-around'
     },
